@@ -16,9 +16,34 @@ public class App {
       return new ModelAndView(model,layout);
     }, new VelocityTemplateEngine());
     get("/story",(request, response) -> {
+     
       Map<String, Object> model = new HashMap<String, Object>();
+      // String person1 = request.queryParams("person1");
+      // String person2 = request.queryParams("person2");
+      // String animal = request.queryParams("animal");
+      // String exclamation = request.queryParams("exclamation");
+      // String verb = request.queryParams("verb");
+      // String noun = request.queryParams("noun");
+      model.put("person1",request.queryParams("person1"));
+      model.put("person2",request.queryParams("person2"));
+      model.put("animal",request.queryParams("animal"));
+      model.put("exclamation",request.queryParams("exclamation"));
+      model.put("verb",request.queryParams("verb"));
+      model.put("noun",request.queryParams("noun"));
       model.put("template","templates/story.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    // get("/story", (request, response) -> {
+    //   Map<String, Object> model = new HashMap<String, Object>();
+    //   model.put("person1", request.queryParams("person1"));
+    //   model.put("person2", request.queryParams("person2"));
+    //   model.put("animal", request.queryParams("animal"));
+    //   model.put("exclamation", request.queryParams("exclamation"));
+    //   model.put("verb", request.queryParams("verb"));
+    //   model.put("noun", request.queryParams("noun"));
+    //   model.put("template", "templates/story.vtl");
+    //   return new ModelAndView(model, layout);
+    // }, new VelocityTemplateEngine());
   }
 }
